@@ -57,7 +57,7 @@ mycursor.execute("INSERT INTO loginTable (userID, username, password)\
 
 '''
 
-mycursor.execute("SELECT *  FROM userTable")
+mycursor.execute("SELECT *  FROM questionTable")
 
 for x in mycursor:
     print(x)

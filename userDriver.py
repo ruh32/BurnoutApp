@@ -28,5 +28,6 @@ check = checker.checkValid("testConnor", "testPassword1")
 print(check)
 check = checker.checkValid("testConnor", "testPassword")
 print(check)
+
 getId = checker.getUserID("testConnor", "testPassword")
 print(getId)

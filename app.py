@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for
-import loginCheck, user
+import loginCheck, user, questionnaire, datetime
 
 app = Flask(__name__)
 current_user = None
@@ -53,16 +53,26 @@ def resources():
 def questions():
     #if current_user is not None:
         if request.method == "POST":
-            responses = {}
-            for i in range(1, 7):
-                input_name = f'response{i}'
-                response_value = request.form.get(f'response{i}')
+            responses = []
+            for i in range(6):
+                input_name = f'response{i+1}'
+                response_value = request.form.get(f'response{i+1}')
                 print(response_value)
-                if response_value is not None:
-                    responses[i] = response_value
+                if response_value is not None:  
+                    responses.append(int(response_value))
 
             if len(responses) == 6:
-                # TODO add responses to new questionnair
+
+                responseVal = 0
+                for i in range(len(responses)):
+                     responseVal *= 10
+                     responseVal += responses[i]
+
+                print(responseVal)
+                global responseClass
+                responseClass = questionnaire.Questionnaire(current_user.id)
+                responseClass.set_question_response(current_user.id, datetime.datetime.now().date(), responseVal)
+
                 return redirect(url_for('landing_page'))
             else:
                 return render_template('questions.html')
