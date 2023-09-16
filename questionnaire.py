@@ -1,12 +1,12 @@
 class Questionnaire:
     
     def __init__(self, id, date, question_responses):
-        self.id = id
+        self.user_id = id
         self.date = date
         self.respones = question_responses
     
     def get_id(self):
-        return self.id
+        return self.user_id
     
     def get_date(self):
         return self.date

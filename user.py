@@ -1,6 +1,6 @@
 class User:
     def __init__(self, id, username, password, firstName, lastName, age, gender, ethnicity, occupation, adminFlag, active):
-        self.id = id
+        self.user_id = id
         self.username = username
         self.password = password
         self.firstName = firstName
@@ -13,7 +13,7 @@ class User:
         self.active = active
     
     def get_id(self):
-        return self.id
+        return self.user_id
     
     def get_username(self):
         return self.username
