@@ -75,9 +75,9 @@ def questions():
 
 @app.route('/adminLandingPage', methods=['GET', 'POST'])
 def admin_landing_page():
-    #if current_user is not None:
+    # if current_user is not None:
         return render_template('adminLandingPage.html')
-    #else:
+    # else:
        # return render_template(url_for('index.html'))
 
 if __name__ == "__main__":
