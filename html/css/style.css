@@ -193,6 +193,8 @@ input[type=text], input[type=password] {
   
   .container {
     padding: 16px;
+    width: 400px;
+    height: 275px;
   }
   
   span.psw {
