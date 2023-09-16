@@ -1,31 +1,48 @@
-from flask import Flask, render_template, url_for
-from flask_sqlalchemy import SQLAlchemy
+from flask import Flask, render_template, request, redirect, url_for
 
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def index():
+
+    username = request.form.get('uname')
+    password = request.form.get('psw')
+    # TODO function to verify in db
+    # if found, redirect
+    # else nothing
+
     return render_template('index.html')
 
-@app.route('/login')
-def login():
-    return render_template('login.html')
-
-@app.route('/landingPage')
+@app.route('/landingPage', methods=['GET', 'POST'])
 def landing_page():
     return render_template('landingPage.html')
 
 @app.route('/journal')
 def jounral():
-    return render_template('jounral.html')
+    return render_template('journal.html')
 
 @app.route('/myHealthHistory')
 def my_health_history():
     return render_template('myHealthHistory.html')
 
-@app.route('/questions')
+@app.route('/questions', methods=['GET', 'POST'])
 def questions():
-    return render_template('')
+    if request.method == "POST":
+
+        responses = {}
+        for i in range(1, 7):
+            input_name = f'responses{i}'
+            response_value = request.form.get(input_name)
+            if response_value is not None:
+                responses[f'Question {i}'] = int(response_value)
+
+        if len(responses) == 6:
+            return redirect(url_for('landing_page'))
+        else:
+            return render_template('questions.html')
+        
+
+    return render_template('questions.html')
 
 if __name__ == "__main__":
     app.run(debug=True)
