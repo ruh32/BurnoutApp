@@ -33,6 +33,7 @@ class HealthLogic:
 
     def createTeamGraph(self):
         self
+        createGraph();
 
     def getHighRisk(self):
         self
