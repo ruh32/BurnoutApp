@@ -37,10 +37,11 @@ def questions():
     if request.method == "POST":
         responses = {}
         for i in range(1, 7):
-            input_name = f'responses{i}'
-            response_value = request.form.get(input_name)
+            input_name = f'response{i}'
+            response_value = request.form.get(f'response{i}')
+            print(response_value)
             if response_value is not None:
-                responses[f'Question {i}'] = int(response_value)
+                responses[i] = response_value
 
         if len(responses) == 6:
             return redirect(url_for('landing_page'))
