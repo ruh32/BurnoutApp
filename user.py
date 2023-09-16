@@ -16,7 +16,7 @@ class User:
         mycursor.execute("SELECT * FROM userTable WHERE userID = %s" % id)
         
         for userId, first, last, age, gender, ethnicity, occupation, admin, active in mycursor:
-            self.userID = userId
+            self.id = userId
             self.firstName = first
             self.lastName = last
             self.age = age
@@ -31,7 +31,7 @@ class User:
     @classmethod
 
     def get_id(self):
-        return self.userID
+        return self.id
     
     def get_firstname(self):
         return self.firstName
