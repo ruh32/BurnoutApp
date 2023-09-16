@@ -4,6 +4,7 @@ import questionnaire
 import resources
 import loginCheck
 import plotly
+import healthLogic
 
 #test user check
 currUser = user.User(2)
@@ -28,6 +29,9 @@ check = checker.checkValid("testConnor", "testPassword1")
 print(check)
 check = checker.checkValid("testConnor", "testPassword")
 print(check)
-
 getId = checker.getUserID("testConnor", "testPassword")
 print(getId)
+
+#check healthLogic
+healthLogicCheck = healthLogic.HealthLogic(1)
+healthLogicCheck.loadGraph(10)

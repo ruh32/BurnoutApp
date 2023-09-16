@@ -55,9 +55,15 @@ mycursor.execute("INSERT INTO userTable (userId, firstName, lastName, age, gende
 mycursor.execute("INSERT INTO loginTable (userID, username, password)\
                  VALUES (%s,%s,%s)", (2, "testAdmin", "testAdminPassword"))
 
-'''
 
-mycursor.execute("SELECT *  FROM questionTable")
+
+mycursor.execute("DELETE FROM questionTable")
+
+mycursor.execute("INSERT INTO questionTable (userId, date, questionResponses)\
+                 VALUES (%s,%s,%s)", (1, '2023-09-16', 583755))
+                 '''
+
+mycursor.execute("SELECT * FROM questionTable")
 
 for x in mycursor:
     print(x)
