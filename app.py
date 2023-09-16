@@ -22,36 +22,36 @@ def index():
 
 @app.route('/landingPage')
 def landing_page():
-    if current_user is not None:
+    #if current_user is not None:
         return render_template('landingPage.html')
-    else:
-        return render_template('index.html')
+    #else:
+        #return render_template('index.html')
     
 
 @app.route('/journal')
 def journal():
-    if current_user is not None:
+    #if current_user is not None:
         return render_template('journal.html')
-    else:
-        return render_template('index.html')
+    #else:
+        #return render_template('index.html')
 
 @app.route('/myHealthHistory')
 def my_health_history():
-    if current_user is not None:
+    #if current_user is not None:
         return render_template('myHealthHistory.html')
-    else:
-        return render_template('index.html')
+    #else:
+        #return render_template('index.html')
 
 @app.route('/resources')
 def resources():
-    if current_user is not None:
+    #if current_user is not None:
         return render_template('resources.html')
-    else:
-        return render_template('index.html')
+    #else:
+        #return render_template('index.html')
 
 @app.route('/questions', methods=['GET', 'POST'])
 def questions():
-    if current_user is not None:
+    #if current_user is not None:
         if request.method == "POST":
             responses = {}
             for i in range(1, 7):
@@ -67,8 +67,8 @@ def questions():
             else:
                 return render_template('questions.html')
         return render_template('questions.html')
-    else:
-        return render_template('index.html')
+    #else:
+        #return render_template('index.html')
 
 @app.route('/adminLandingPage', methods=['GET', 'POST'])
 def admin_landing_page():
