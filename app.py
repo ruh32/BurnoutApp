@@ -44,6 +44,8 @@ def questions():
                 responses[i] = response_value
 
         if len(responses) == 6:
+            # TODO add responses to new questionnaire
+
             return redirect(url_for('landing_page'))
         else:
             return render_template('questions.html')
