@@ -14,20 +14,26 @@ class HealthLogic:
         # fig.show()
         fig.write_image("static/image/plot.jpeg", format="jpeg", width=200, height=300) # makes an image
        
-
     def getHealthMonthAverage(self):
-        sorted_data = dict(reversed(sorted(self.qDict.items(), key=lambda item: item[0])))
-        print(sorted_data)
+        sortedData = dict(reversed(sorted(self.qDict.items(), key=lambda item: item[0])))
+        average = sum(list(sortedData.values())[:4]) / 4
+        return average
+
 
     def getHealthDescriptor(self):
-        #hold
-        self
+        healthAverage = self.getHealthMonthAverage()
+        if(1 <= healthAverage <= 2): return "Very Good"
+        elif(3 <= healthAverage <= 4): return "Good"
+        elif(5 <= healthAverage <= 6): return "Ok"
+        elif(7 <= healthAverage <= 8): return "Poor"
+        else: return "Very Poor"
     
     def getHealthMonth(self):
         self
 
     def createTeamGraph(self):
         self
+        createGraph();
 
     def getHighRisk(self):
         self
