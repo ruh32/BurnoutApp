@@ -9,8 +9,6 @@ def index():
     if request.method == "POST":
         username = request.form.get('uname')
         password = request.form.get('psw')
-        print(username)
-        print(password)
         # TODO function to verify in db
         # if found, redirect
         # else nothing
