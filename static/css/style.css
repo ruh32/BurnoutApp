@@ -523,6 +523,38 @@ button {
     color: #ffffff;
     background-color: #ff5333;
 }
+
+.box-container {
+    display: flex;
+    gap: 20px; 
+}
+
+.box {
+    flex: 1;
+    max-width: calc(50% - 10px); 
+    margin-top: 20px;
+    background-color: #e5e5e5;  
+    height: 200px;  
+}
+
+.left-box {
+    width: 50%;
+    height: 300px;
+    float: left;
+    margin-left: 430px;  
+    background-color: #E5E7EB
+}
+
+.right-boxes {
+    width: 50%;
+    height: 230px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
 .box.active{
     color: #ffffff;
     background-color: #ff5333;
