@@ -7,5 +7,25 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
+@app.route('/login')
+def login():
+    return render_template('login.html')
+
+@app.route('/landingPage')
+def landing_page():
+    return render_template('landingPage.html')
+
+@app.route('/jounral')
+def jounral():
+    return render_template('jounral.html')
+
+@app.route('/myHealthHistory')
+def my_health_history():
+    return render_template('myHealthHistory.html')
+
+@app.route('/questions')
+def questions():
+    return render_template('')
+
 if __name__ == "__maim__":
     app.run(debug=True)
