@@ -9,47 +9,76 @@ def index():
     if request.method == "POST":
         username = request.form.get('uname')
         password = request.form.get('psw')
-        # TODO function to verify in db
-        # if found, redirect
-        # else nothing
         checker = loginCheck.LoginCheck()
         if checker.checkValid(username, password):
-            print("made it through")
             current_user = user.User(checker.getUserID(username, password))
-            return render_template('landingPage.html')
+            if current_user.get_admin_status():
+               return render_template('adminLandingPage.html') 
+            else:
+                return render_template('landingPage.html')
         
     return render_template('index.html')  
 
-@app.route('/landingPage', methods=['GET', 'POST'])
+@app.route('/landingPage')
 def landing_page():
-    return render_template('landingPage.html')
+
+    if current_user is not None:
+        return render_template('landingPage.html')
+    else:
+        return render_template('index.html')
+    
 
 @app.route('/journal')
-def jounral():
-    return render_template('journal.html')
+def journal():
+    if current_user is not None:
+        return render_template('journal.html')
+    else:
+        return render_template('index.html')
 
 @app.route('/myHealthHistory')
 def my_health_history():
-    return render_template('myHealthHistory.html')
+    if current_user is not None:
+        return render_template('myHealthHistory.html')
+    else:
+        return render_template('index.html')
+
+@app.route('/resources')
+def resources():
+    if current_user is not None:
+        return render_template('resources.html')
+    else:
+        return render_template('index.html')
 
 @app.route('/questions', methods=['GET', 'POST'])
 def questions():
-    if request.method == "POST":
+    if current_user is not None:
+        if request.method == "POST":
+            responses = {}
+            for i in range(1, 7):
+                input_name = f'response{i}'
+                response_value = request.form.get(f'response{i}')
+                print(response_value)
+                if response_value is not None:
+                    responses[i] = response_value
 
-        responses = {}
-        for i in range(1, 7):
-            input_name = f'responses{i}'
-            response_value = request.form.get(input_name)
-            if response_value is not None:
-                responses[f'Question {i}'] = int(response_value)
+            if len(responses) == 6:
+                # TODO add responses to new questionnaire
 
-        if len(responses) == 6:
-            return redirect(url_for('landing_page'))
-        else:
-            return render_template('questions.html')
-        
+                return redirect(url_for('landing_page'))
+            else:
+                return render_template('questions.html')
 
-    return render_template('questions.html')
+        return render_template('questions.html')
+    
+    else:
+        return render_template('index.html')
+
+@app.route('/adminLandingPage', methods=['GET', 'POST'])
+def admin_landing_page():
+    if current_user is not None:
+        return render_template('adminLandingPage.html')
+    else:
+        return render_template(url_for('index.html'))
 
 if __name__ == "__main__":
     app.run(debug=True)
