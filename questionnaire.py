@@ -48,7 +48,5 @@ class Questionnaire:
         
         db.commit()
 
-        self.responseDict.append(date, answer)
-
     def getDict(self):
         return self.responseDict.copy()
