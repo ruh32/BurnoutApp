@@ -13,22 +13,25 @@ def index():
 
     return render_template('index.html')
 
-@app.route('/landingPage', methods=['GET', 'POST'])
+@app.route('/landingPage')
 def landing_page():
     return render_template('landingPage.html')
 
 @app.route('/journal')
-def jounral():
+def journal():
     return render_template('journal.html')
 
 @app.route('/myHealthHistory')
 def my_health_history():
     return render_template('myHealthHistory.html')
 
+@app.route('/resources')
+def resources():
+    return render_template('resources.html')
+
 @app.route('/questions', methods=['GET', 'POST'])
 def questions():
     if request.method == "POST":
-
         responses = {}
         for i in range(1, 7):
             input_name = f'responses{i}'
