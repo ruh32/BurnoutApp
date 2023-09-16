@@ -5,7 +5,7 @@ import resources
 import loginCheck
 
 #test user check
-currUser = user.User(1)
+currUser = user.User(2)
 print(currUser.id)
 print(currUser.get_firstname())
 print(currUser.get_lastname())

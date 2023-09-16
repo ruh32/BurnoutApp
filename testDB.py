@@ -46,6 +46,20 @@ mycursor.execute("INSERT INTO questionTable (userId, date, questionResponses)\
 
 mycursor.execute("INSERT INTO loginTable (userID, username, password)\
                  VALUES (%s,%s,%s)", (1, "testConnor", "testPassword"))
+
+
+
+mycursor.execute("INSERT INTO userTable (userId, firstName, lastName, age, gender, ethnicity, occupation, adminFlag, activeFlag)\
+                 VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s)", (2, "Admin", "Test", 22, 'M', "Caucasian", "Student", 1, 1))
+
+mycursor.execute("INSERT INTO loginTable (userID, username, password)\
+                 VALUES (%s,%s,%s)", (2, "testAdmin", "testAdminPassword"))
+
 '''
+
+mycursor.execute("SELECT *  FROM userTable")
+
+for x in mycursor:
+    print(x)
 
 #db.commit()
