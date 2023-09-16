@@ -21,7 +21,6 @@ def index():
 
 @app.route('/landingPage')
 def landing_page():
-
     if current_user is not None:
         return render_template('landingPage.html')
     else:
@@ -62,14 +61,11 @@ def questions():
                     responses[i] = response_value
 
             if len(responses) == 6:
-                # TODO add responses to new questionnaire
-
+                # TODO add responses to new questionnair
                 return redirect(url_for('landing_page'))
             else:
                 return render_template('questions.html')
-
         return render_template('questions.html')
-    
     else:
         return render_template('index.html')
 
