@@ -23,10 +23,29 @@ mycursor.execute("CREATE TABLE userTable (userID INT PRIMARY KEY,\
                  activeFlag BIT)")
 '''
 
+#questionTable data mapping
+'''
 mycursor.execute("CREATE TABLE questionTable (userID INT PRIMARY KEY,\
                  date VARCHAR(50),\
                  questionResponses INT)")
+'''
 
+#journal data mapping
+'''
+mycursor.execute("CREATE TABLE journalTable (userID INT PRIMARY KEY,\
+                 date VARCHAR(50),\
+                 journalEntry TEXT)")
+'''
+
+#resource mappings
+'''
+mycursor.execute("CREATE TABLE resourceTable (name VARCHAR(50) PRIMARY KEY,\
+                 url TINYTEXT,\
+                 phone INT UNSIGNED,\
+                 logo VARCHAR(50),\
+                 description TEXT,\
+                 activeFlag BIT)")
+'''
 
 db.commit()
 
