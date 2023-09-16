@@ -12,4 +12,4 @@ class Questionnaire:
         return self.date
     
     def get_question_response(self, i):
-        return self.responses[i]
+        return self.respones[i]
