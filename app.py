@@ -7,13 +7,13 @@ def index():
 
     username = request.form.get('uname')
     password = request.form.get('psw')
-    # function to verify in db
+    # TODO function to verify in db
     # if found, redirect
     # else nothing
 
     return render_template('index.html')
 
-@app.route('/landingPage')
+@app.route('/landingPage', methods=['GET', 'POST'])
 def landing_page():
     return render_template('landingPage.html')
 
