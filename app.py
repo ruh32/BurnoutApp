@@ -18,40 +18,57 @@ def index():
 
 @app.route('/landingPage')
 def landing_page():
-    return render_template('landingPage.html')
+
+    if current_user is not None:
+        return render_template('landingPage.html')
+    else:
+        return render_template('index.html')
+    
 
 @app.route('/journal')
 def journal():
-    return render_template('journal.html')
+    if current_user is not None:
+        return render_template('journal.html')
+    else:
+        return render_template('index.html')
 
 @app.route('/myHealthHistory')
 def my_health_history():
-    return render_template('myHealthHistory.html')
+    if current_user is not None:
+        return render_template('myHealthHistory.html')
+    else:
+        return render_template('index.html')
 
 @app.route('/resources')
 def resources():
-    return render_template('resources.html')
+    if current_user is not None:
+        return render_template('resources.html')
+    else:
+        return render_template('index.html')
 
 @app.route('/questions', methods=['GET', 'POST'])
 def questions():
-    if request.method == "POST":
-        responses = {}
-        for i in range(1, 7):
-            input_name = f'response{i}'
-            response_value = request.form.get(f'response{i}')
-            print(response_value)
-            if response_value is not None:
-                responses[i] = response_value
+    if current_user is not None:
+        if request.method == "POST":
+            responses = {}
+            for i in range(1, 7):
+                input_name = f'response{i}'
+                response_value = request.form.get(f'response{i}')
+                print(response_value)
+                if response_value is not None:
+                    responses[i] = response_value
 
-        if len(responses) == 6:
-            # TODO add responses to new questionnaire
+            if len(responses) == 6:
+                # TODO add responses to new questionnaire
 
-            return redirect(url_for('landing_page'))
-        else:
-            return render_template('questions.html')
-        
+                return redirect(url_for('landing_page'))
+            else:
+                return render_template('questions.html')
 
-    return render_template('questions.html')
+        return render_template('questions.html')
+    
+    else:
+        return render_template('index.html')
 
 if __name__ == "__main__":
     app.run(debug=True)
