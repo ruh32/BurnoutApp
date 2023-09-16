@@ -32,7 +32,22 @@ class Questionnaire:
     def get_question_response(self, i):
         return self.responseDict.getValue(i)
     
-    def set_question_response(self, date, answer):
+    def set_question_response(self, id, date, answer):
+
+        db = mysql.connector.connect(
+        host = "localhost",
+        user = "root",
+        passwd = "EmberitePass2234",
+        database = "emberiteDatabase"
+        )
+
+        mycursor = db.cursor()
+
+        mycursor.execute("INSERT INTO questionTable (userId, date, questionResponses)\
+                 VALUES (%s,%s,%s)", (id, date, answer))
+        
+        db.commit()
+
         self.responseDict.append(date, answer)
 
     def getDict(self):

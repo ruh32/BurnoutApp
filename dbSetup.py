@@ -45,11 +45,12 @@ mycursor.execute("CREATE TABLE resourceTable (name VARCHAR(50) PRIMARY KEY,\
                  logo VARCHAR(50),\
                  description TEXT,\
                  activeFlag BIT)")
-'''
 
 mycursor.execute("CREATE TABLE loginTable (userID INT PRIMARY KEY,\
                  username VARCHAR(50),\
                  password VARCHAR(50))")
+
+                 '''
 
 #db.commit()
 

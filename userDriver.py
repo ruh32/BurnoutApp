@@ -3,6 +3,7 @@ import entry
 import questionnaire
 import resources
 import loginCheck
+import plotly
 
 #test user check
 currUser = user.User(2)
