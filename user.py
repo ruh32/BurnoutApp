@@ -12,6 +12,7 @@ class User:
         self.adminFlag = adminFlag
         self.active = active
     
+    @classmethod
     def get_id(self):
         return self.user_id
     

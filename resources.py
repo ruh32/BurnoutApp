@@ -8,6 +8,7 @@ class Resources:
         self.desc = desc
         self.active = active
 
+    @classmethod
     def get_name(self):
         return self.name
     
