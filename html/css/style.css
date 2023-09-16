@@ -100,12 +100,116 @@ h6 {
 }
 
 *,
-*::after,
-*::before {
-     -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-     box-sizing: border-box;
+*:before,
+*:after {
+  box-sizing: border-box;
 }
+
+body {
+  font-family: Montserrat, sans-serif;
+  background: var(--clr-gray100);
+}
+
+.nav-list {
+  box-shadow: 0px 0px 10px var(--clr-gray200);
+  padding: 1rem 0;
+  border-radius: var(--radius);
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  float: left;
+}
+
+.nav-item {
+  list-style: none;
+  margin-right: 1rem;
+  float: left;
+}
+
+.nav-item a {
+  text-decoration: none;
+  color: white;
+  transition: all 200ms ease-in;
+}
+
+.nav-item a:hover {
+  color: var(--clr-primary-dark);
+}
+
+.nav-item:first-child {
+  margin-right: auto;
+  margin-left: 1rem;
+}
+
+.btn-primary {
+  font-family: Montserrat, sans-serif;
+  font-size: 1rem;
+  background: var(--clr-primary);
+  border: none;
+  outline: none;
+  border-radius: var(--radius);
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: all 200ms ease-in;
+}
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  
+  button {
+    background-color: #04AA6D;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+  }
+  
+  button:hover {
+    opacity: 0.8;
+  }
+  
+  .cancelbtn {
+    width: auto;
+    padding: 10px 18px;
+    background-color: #f44336;
+  }
+  
+  .imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+  }
+  
+  img.avatar {
+    width: 40%;
+    border-radius: 50%;
+  }
+  
+  .container {
+    padding: 16px;
+  }
+  
+  span.psw {
+    float: right;
+    padding-top: 16px;
+  }
+  
+  /* Change styles for span and cancel button on extra small screens */
+  @media screen and (max-width: 300px) {
+    span.psw {
+       display: block;
+       float: none;
+    }
+    .cancelbtn {
+       width: 100%;
+    }
+  }
 
 h1 a,
 h2 a,
@@ -226,13 +330,14 @@ button {
     float: left;
     position: relative;
     z-index: 1;
+    background-color: #003c61;
 }
 .logo{
     width: 40%;
     float: left;
 }
 .navbar-light .navbar-nav .nav-link {
-    color: #040000;
+    color: white; 
     font-size: 18px;
 }
 .navbar-expand-lg .navbar-nav .nav-link {
@@ -240,22 +345,14 @@ button {
     padding-left: 20px;
     padding-top: 30px;
 }
-.navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link {
-    color: #fff;
-    background-color: #003c61;
-}
-.navbar-light .navbar-nav .nav-link:focus, .navbar-light .navbar-nav .nav-link:hover {
-    color: #fff;
-    background-color: #003c61;
-}
 .navbar {
-    padding: 0px 25px 30px 25px;
+    padding: 0px 0px 30px 30px;
 }
 .search_icon{
     padding-top: 30px;
 }
 .bg-light {
-    background-color: #fff !important;
+    background-color: #003c61 !important;
 }
 .banner_section {
     width: 100%;
@@ -295,27 +392,12 @@ button {
     width: 100%;
     float: left;
     font-size: 16px;
-    color: #202020;
     margin-left: 0px;
     padding-bottom: 40px;
 }
 .about_bt{
     width: 170px;
     float: left;
-}
-.about_bt a{
-    width: 100%;
-    float: left;
-    font-size: 16px;
-    color: #ffffff;
-    background-color: #ff5333;
-    padding: 10px 0px;
-    border-radius: 5px;
-    text-align: center;
-}
-.about_bt a:hover{
-    color: #ffffff;
-    background-color: #ff5333;
 }
 .contact_bt{
     width: 170px;
@@ -332,10 +414,6 @@ button {
     border-radius: 5px;
     text-align: center;
 }
-.contact_bt a:hover{
-    color: #ffffff;
-    background-color: #ff5333;
-}
 #my_slider a.carousel-control-prev {
     position: absolute;
     left: 585px;
@@ -348,7 +426,6 @@ button {
     background: #ff5333;
     opacity: 1;
     font-size: 30px;
-    color: #000;
     border-radius: 100%;
 }
 
@@ -583,7 +660,7 @@ button {
     width: 100%;
     float: left;
     font-size: 16px;
-    color: #000;
+    color: black;
     margin-left: 0px;
 }
 .heading_text_1{
