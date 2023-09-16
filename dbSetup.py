@@ -47,5 +47,5 @@ mycursor.execute("CREATE TABLE resourceTable (name VARCHAR(50) PRIMARY KEY,\
                  activeFlag BIT)")
 '''
 
-db.commit()
+#db.commit()
 
