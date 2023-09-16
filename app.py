@@ -12,7 +12,10 @@ def index():
         checker = loginCheck.LoginCheck()
         if checker.checkValid(username, password):
             current_user = user.User(checker.getUserID(username, password))
-            return render_template('landingPage.html')
+            if current_user.get_admin_status():
+               return render_template('adminLandingPage.html') 
+            else:
+                return render_template('landingPage.html')
         
     return render_template('index.html')  
 
@@ -69,6 +72,13 @@ def questions():
     
     else:
         return render_template('index.html')
+
+@app.route('/adminLandingPage', methods=['GET', 'POST'])
+def admin_landing_page():
+    if current_user is not None:
+        return render_template('adminLandingPage.html')
+    else:
+        return render_template(url_for('index.html'))
 
 if __name__ == "__main__":
     app.run(debug=True)
