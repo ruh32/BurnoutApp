@@ -11,9 +11,8 @@ def index():
         password = request.form.get('psw')
         checker = loginCheck.LoginCheck()
         if checker.checkValid(username, password):
-            global id
-            id = checker.getUserID(username, password)
-            current_user = user.User(id)
+            global current_user
+            current_user = user.User(checker.getUserID(username, password))
             if current_user.get_admin_status():
                return render_template('adminLandingPage.html') 
             else:
@@ -23,7 +22,6 @@ def index():
 
 @app.route('/landingPage')
 def landing_page():
-    current_user = user.User(id)
     if current_user is not None:
         return render_template('landingPage.html')
     else:
@@ -32,7 +30,6 @@ def landing_page():
 
 @app.route('/journal')
 def journal():
-    current_user = user.User(id)
     if current_user is not None:
         return render_template('journal.html')
     else:
@@ -40,7 +37,6 @@ def journal():
 
 @app.route('/myHealthHistory')
 def my_health_history():
-    current_user = user.User(id)
     if current_user is not None:
         return render_template('myHealthHistory.html')
     else:
@@ -48,7 +44,6 @@ def my_health_history():
 
 @app.route('/resources')
 def resources():
-    current_user = user.User(id)
     if current_user is not None:
         return render_template('resources.html')
     else:
@@ -56,7 +51,6 @@ def resources():
 
 @app.route('/questions', methods=['GET', 'POST'])
 def questions():
-    current_user = user.User(id)
     if current_user is not None:
         if request.method == "POST":
             responses = {}
