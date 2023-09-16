@@ -15,7 +15,7 @@ def login():
 def landing_page():
     return render_template('landingPage.html')
 
-@app.route('/jounral')
+@app.route('/journal')
 def jounral():
     return render_template('jounral.html')
 
@@ -27,5 +27,5 @@ def my_health_history():
 def questions():
     return render_template('')
 
-if __name__ == "__maim__":
+if __name__ == "__main__":
     app.run(debug=True)
