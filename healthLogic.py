@@ -12,11 +12,11 @@ class HealthLogic:
         print(self.qDict) #dictionary of data for user date = key, value = 6 ints from questions
         fig = px.bar(self.qDict, x='Time', y='Mental Health', title='Mental Health Trends')
         # fig.show()
-        fig.write_image("plot.jpeg", format="jpeg", width=800, height=600)
+        fig.write_image("static/image/plot.jpeg", format="jpeg", width=200, height=300) # makes an image
        
 
     def getHealthMonthAverage(self):
-        sorted_data = dict(sorted(self.qDict.items(), key=lambda item: item[0]))
+        sorted_data = dict(reversed(sorted(self.qDict.items(), key=lambda item: item[0])))
         print(sorted_data)
 
     def getHealthDescriptor(self):
