@@ -1,41 +1,41 @@
 class User:
-    def __init__(user, id, username, password, firstName, lastName, age, gender, ethnicity, occupation, adminFlag, active):
-        user.id = id
-        user.username = username
-        user.password = password
-        user.firstName = firstName
-        user.lastName = lastName
-        user.age = age
-        user.gender = gender
-        user.ethnicity = ethnicity
-        user.occupation = occupation
-        user.adminFlag = adminFlag
-        user.active = active
+    def __init__(self, id, username, password, firstName, lastName, age, gender, ethnicity, occupation, adminFlag, active):
+        self.id = id
+        self.username = username
+        self.password = password
+        self.firstName = firstName
+        self.lastName = lastName
+        self.age = age
+        self.gender = gender
+        self.ethnicity = ethnicity
+        self.occupation = occupation
+        self.adminFlag = adminFlag
+        self.active = active
     
-    def get_id(user):
-        return user.id
+    def get_id(self):
+        return self.id
     
-    def get_username(user):
-        return user.username
+    def get_username(self):
+        return self.username
     
-    def get_lastname(user):
-        return user.lastName
+    def get_lastname(self):
+        return self.lastName
     
-    def get_age(user):
-        return user.age
+    def get_age(self):
+        return self.age
     
-    def get_gender(user):
-        return user.gender
+    def get_gender(self):
+        return self.gender
     
-    def get_ethnicity(user):
-        return user.ethnicity
+    def get_ethnicity(self):
+        return self.ethnicity
     
-    def get_occupation(user):
-        return user.occupation
+    def get_occupation(self):
+        return self.occupation
     
-    def get_admin_status(user):
-        return user.adminFlag
+    def get_admin_status(self):
+        return self.adminFlag
     
-    def get_active_status(user):
-        return user.active
+    def get_active_status(self):
+        return self.active
 
