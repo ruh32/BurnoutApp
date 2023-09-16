@@ -566,13 +566,6 @@ button {
     color: #ffffff;
     background-color: #ff5333;
 }
-.dancer_section{
-    width: 100%;
-    float: left;
-    background-image: url(../images/dancer-bg.png);
-    height: auto;
-    background-size: 100%;
-}
 .ballet_text{
     width: 100%;
     float: left;
@@ -912,4 +905,16 @@ textarea#comment::placeholder {
 }
 .margin_top0{
     margin-top: 90px;
+}
+.container2{
+    border: 1px solid black;
+    height: 400px;
+    width: 50%;
+    float:left;
+    margin-right: 20px;
+}
+.container1{
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
 }
