@@ -1,23 +1,40 @@
+import mysql.connector
+
+
 class User:
-    def __init__(self, id, username, password, firstName, lastName, age, gender, ethnicity, occupation, adminFlag, active):
-        self.user_id = id
-        self.username = username
-        self.password = password
-        self.firstName = firstName
-        self.lastName = lastName
-        self.age = age
-        self.gender = gender
-        self.ethnicity = ethnicity
-        self.occupation = occupation
-        self.adminFlag = adminFlag
-        self.active = active
+    def __init__(self, id):
+
+        db = mysql.connector.connect(
+        host = "localhost",
+        user = "root",
+        passwd = "EmberitePass2234",
+        database = "emberiteDatabase"
+        )
+
+        mycursor = db.cursor()
+
+        mycursor.execute("SELECT * FROM userTable WHERE userID = %s" % id)
+        
+        for userId, first, last, age, gender, ethnicity, occupation, admin, active in mycursor:
+            self.userID = userId
+            self.firstName = first
+            self.lastName = last
+            self.age = age
+            self.gender = gender
+            self.ethnicity = ethnicity
+            self.occupation = occupation
+            self.adminFlag = admin
+            self.active = active
+
+        print("Successfully Called User")
     
     @classmethod
+
     def get_id(self):
-        return self.user_id
+        return self.userID
     
-    def get_username(self):
-        return self.username
+    def get_firstname(self):
+        return self.firstName
     
     def get_lastname(self):
         return self.lastName
