@@ -1,17 +1,24 @@
 from flask import Flask, render_template, request, redirect, url_for
+import loginCheck, user
 
 app = Flask(__name__)
+current_user = None
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-
-    username = request.form.get('uname')
-    password = request.form.get('psw')
-    # TODO function to verify in db
-    # if found, redirect
-    # else nothing
-
-    return render_template('index.html')
+    if request.method == "POST":
+        username = request.form.get('uname')
+        password = request.form.get('psw')
+        # TODO function to verify in db
+        # if found, redirect
+        # else nothing
+        checker = loginCheck.LoginCheck()
+        if checker.checkValid(username, password):
+            print("made it through")
+            current_user = user.User(checker.getUserID(username, password))
+            return render_template('landingPage.html')
+        
+    return render_template('index.html')  
 
 @app.route('/landingPage', methods=['GET', 'POST'])
 def landing_page():
