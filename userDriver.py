@@ -3,7 +3,6 @@ import entry
 import questionnaire
 import resources
 import loginCheck
-import plotly
 import healthLogic
 
 #test user check
@@ -34,4 +33,4 @@ print(getId)
 
 #check healthLogic
 healthLogicCheck = healthLogic.HealthLogic(1)
-healthLogicCheck.loadGraph(10)
+healthLogicCheck.getHealthMonthAverage()
