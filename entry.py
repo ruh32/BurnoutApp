@@ -5,6 +5,7 @@ class Entry:
         self.date = date
         self.entry = entry
 
+    @classmethod
     def get_id(self):
         return self.user_id
     

@@ -5,6 +5,7 @@ class Questionnaire:
         self.date = date
         self.respones = question_responses
     
+    @classmethod
     def get_id(self):
         return self.user_id
     
@@ -13,3 +14,6 @@ class Questionnaire:
     
     def get_question_response(self, i):
         return self.respones[i]
+    
+    def set_question_response(self, i, answer):
+        self.respones[i] = answer
