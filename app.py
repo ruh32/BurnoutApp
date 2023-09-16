@@ -11,7 +11,9 @@ def index():
         password = request.form.get('psw')
         checker = loginCheck.LoginCheck()
         if checker.checkValid(username, password):
-            current_user = user.User(checker.getUserID(username, password))
+            global id
+            id = checker.getUserID(username, password)
+            current_user = user.User(id)
             if current_user.get_admin_status():
                return render_template('adminLandingPage.html') 
             else:
