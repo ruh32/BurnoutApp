@@ -164,3 +164,6 @@
           .btn-scale-desc-1:hover {
             background-color: #DE0000;
           }
+          .active-button {
+            border: 12px solid black;
+        }
