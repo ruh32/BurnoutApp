@@ -15,7 +15,9 @@ def index():
             if current_user.get_admin_status():
                return render_template('adminLandingPage.html') 
             else:
-                return render_template('landingPage.html')
+                userHealthData = healthLogic.HealthLogic(current_user.id)
+                healthDescriptor = userHealthData.getHealthDescriptor()
+                return render_template('landingPage.html', score= healthDescriptor)
         
     return render_template('index.html')  
 
@@ -23,11 +25,15 @@ def index():
 def landing_page():
     #if current_user is not None:
 
-        userHealthData = healthLogic.HealthLogic(current_user.get_id())
-        monthAverage = userHealthData.getHealthMonthAverage()
-        healthDescriptor = userHealthData.getHealthDescriptor()
 
-        return render_template('landingPage.html')
+    userHealthData = healthLogic.HealthLogic(current_user.id)
+    monthAverage = userHealthData.getHealthMonthAverage()
+    healthDescriptor = userHealthData.getHealthDescriptor()
+    print(current_user)
+    print(healthDescriptor)
+
+
+    return render_template('landingPage.html', score="Shit")
     #else:
         #return render_template('index.html')
     
