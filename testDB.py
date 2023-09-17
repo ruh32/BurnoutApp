@@ -14,35 +14,10 @@ mycursor = db.cursor()
 #mycursor.execute("INSERT INTO Person (name, age) VALUES (%s,%s)", ("Tim", 19))
 #db.commit()
 
-'''
 mycursor.execute("INSERT INTO userTable (userId, firstName, lastName, age, gender, ethnicity, occupation, adminFlag, activeFlag)\
                  VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s)", (1, "Connor", "Paladino", 20, 'M', "Caucasian", "Student", 0, 1))
 
-                 
-                 
-mycursor.execute("INSERT INTO questionTable (userId, date, questionResponses)\
-                 VALUES (%s,%s,%s)", (1, "9/16/'2023", 184723))
-
-mycursor.execute("INSERT INTO questionTable (userId, date, questionResponses)\
-                 VALUES (%s,%s,%s)", (1, "9/16/'2023", 938275))
-
-mycursor.execute("INSERT INTO questionTable (userId, date, questionResponses)\
-                 VALUES (%s,%s,%s)", (1, "9/16/'2023", 123857))
-
-mycursor.execute("INSERT INTO questionTable (userId, date, questionResponses)\
-                 VALUES (%s,%s,%s)", (1, "9/16/'2023", 957392))
-
-
-mycursor.execute("INSERT INTO questionTable (userId, date, questionResponses)\
-                 VALUES (%s,%s,%s)", (1, "9/17/'2023", 938275))
-
-mycursor.execute("INSERT INTO questionTable (userId, date, questionResponses)\
-                 VALUES (%s,%s,%s)", (1, "9/18/'2023", 123857))
-
-mycursor.execute("INSERT INTO questionTable (userId, date, questionResponses)\
-                 VALUES (%s,%s,%s)", (1, "9/19/'2023", 957392))
-
-
+        
 
 mycursor.execute("INSERT INTO loginTable (userID, username, password)\
                  VALUES (%s,%s,%s)", (1, "testConnor", "testPassword"))
@@ -55,12 +30,6 @@ mycursor.execute("INSERT INTO userTable (userId, firstName, lastName, age, gende
 mycursor.execute("INSERT INTO loginTable (userID, username, password)\
                  VALUES (%s,%s,%s)", (2, "testAdmin", "testAdminPassword"))
 
-
-
-mycursor.execute("DELETE FROM questionTable")
-
-mycursor.execute("INSERT INTO questionTable (userId, date, questionResponses)\
-                 VALUES (%s,%s,%s)", (1, '2023-09-16', 583755))
 
 
 mycursor.execute("INSERT INTO questionTable (userId, date, questionResponses) VALUES (1,'2023-07-14',221858)")
@@ -145,4 +114,4 @@ mycursor.execute("INSERT INTO questionTable (userId, date, questionResponses) VA
 mycursor.execute("INSERT INTO questionTable (userId, date, questionResponses) VALUES (5,'2023-09-12',558352)")
 mycursor.execute("INSERT INTO questionTable (userId, date, questionResponses) VALUES (5,'2023-08-11',266734)")
                  
-'''
+db.commit()
