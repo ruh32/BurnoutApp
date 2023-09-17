@@ -8,4 +8,4 @@ db = mysql.connector.connect(
 
 mycursor = db.cursor()
 
-mycursor.execute("NEW DATABASE emberiteDatabase")
+mycursor.execute("CREATE DATABASE emberiteDatabase")
