@@ -13,11 +13,10 @@ def index():
             global current_user
             current_user = user.User(checker.getUserID(username, password))
             if current_user.get_admin_status():
+               adminHealthLogic.makeTeamGraph()
                return render_template('adminLandingPage.html') 
             else:
-                userHealthData = healthLogic.HealthLogic(current_user.id)
-                healthDescriptor = userHealthData.getHealthDescriptor()
-                return render_template(landingPageRenderTemplate())
+                return render_template('questions.html')
         
     return render_template('index.html')  
 
@@ -62,7 +61,9 @@ def questions():
             responseClass = questionnaire.Questionnaire(current_user.id)
             responseClass.set_question_response(current_user.id, datetime.datetime.now().date(), responseVal)
 
-            return redirect(url_for('landing_page'))
+            inStr = landingPageRenderTemplate()
+            name = current_user.get_firstname()
+            return render_template('landingPage.html', score = inStr, username = name)
         else:
             return render_template('questions.html')
     return render_template('questions.html')
@@ -109,11 +110,10 @@ def resourceLibrary():
 
 def landingPageRenderTemplate():
     userHealthData = healthLogic.HealthLogic(current_user.id)
-    '''monthAverage = userHealthData.getHealthMonthAverage()
-    healthDescriptor = userHealthData.getHealthDescriptor()'''
+    healthDescriptor = userHealthData.getHealthDescriptor()
     userHealthData.createGraph()
-    print("'landingPage.html', score = ")
-    return "'landingPage.html', plot_div=  "
+    return healthDescriptor
 
 if __name__ == "__main__":
     app.run(debug=True)
+

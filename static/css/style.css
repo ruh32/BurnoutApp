@@ -385,7 +385,7 @@ button {
 .dance_text{
     width: 100%;
     float: left;
-    font-size: 90px;
+    font-size: 42px;
     color: #003c61;
     text-transform: uppercase;
     font-weight: bold;
@@ -537,8 +537,9 @@ button {
 }
 
 .container-boxes .left-box {
-    flex-basis: calc(50% - 10px); /* 50% minus half the gap */
-    height: 470px; /* Height for the larger box */
+    flex-basis: calc(50% - 10px);
+    /* object-fit: cover; */
+    height: 470px; 
 }
 
 .container-boxes .right-boxes {
@@ -603,7 +604,6 @@ button {
     color: #1e1e1e;
     font-size: 40px;
     text-align: center;
-    text-transform: uppercase;
 }
 .amet_text{
     width: 100%;
@@ -941,11 +941,30 @@ textarea#comment::placeholder {
     border: 1px solid black;
     height: 400px;
     width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; 
     float:left;
     margin-right: 20px;
 }
 .container1{
     padding: 20px;
     display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; 
     justify-content: space-between;
+}
+.container1 img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+}
+.container2 img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
 }

@@ -1,4 +1,7 @@
 import user, healthLogic, questionnaire, cgi, datetime, statistics, plotly.express as px, mysql.connector
+import os
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 def getTeamAverage():
     db = mysql.connector.connect(
@@ -43,13 +46,18 @@ def makeTeamGraph():
         tempDict = getResponses.getDict()
         newDict.update(tempDict)
     
-    sorted_keys = sorted(newDict.keys(), key=lambda x: int(x[3:]))
-    highest_indexed_keys = sorted_keys[-4:]
-    monthDict = {key: newDict[key] for key in highest_indexed_keys}
+    sorted_dict = dict(reversed(sorted(newDict.items())))
+    for key in sorted_dict:
+        sorted_dict[key] /= 100000
 
-    fig = px.bar(monthDict, x='Time', y='Mental Health', title='Mental Health Trends')
-    # fig.show()
-    fig.write_image("static/image/plot.jpeg", format="jpeg", width=200, height=300) # makes an image
+    plt.figure()
+    plt.title("Overall Company Health Score")
+    sns.lineplot(x=list(sorted_dict.keys()), y=list(sorted_dict.values())).invert_yaxis()
+    plt.xlabel("Date")
+    plt.xticks(range(0, len(list(sorted_dict.keys())), 10))
+    plt.ylabel("How Are They Doing?")
+    file_directory = os.path.join(os.path.dirname(__file__), 'static/images/')
+    plt.savefig(os.path.join(file_directory, 'user_data_admin.png'))
 
 def getHighRisk():
     
