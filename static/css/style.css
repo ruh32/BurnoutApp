@@ -519,40 +519,35 @@ button {
     padding: 70px 0px;
     margin-top: 30px;
 }
-.box:hover{
+/* .box:hover{
     color: #ffffff;
     background-color: #ff5333;
-}
+} */
 
-.box-container {
+.container-boxes {
     display: flex;
-    gap: 20px; 
+    gap: 20px; /* Space between left box and right boxes */
+    padding: 20px; /* Just for visualization */
 }
 
-.box {
-    flex: 1;
-    max-width: calc(50% - 10px); 
-    margin-top: 20px;
-    background-color: #e5e5e5;  
-    height: 200px;  
+.container-boxes .box {
+    background-color: #e5e5e5;  /* A visible grey color for the boxes */
+    height: 200px;  /* Height for the small boxes */
+    border: 1px solid #000; /* To visibly outline the boxes */
 }
 
-.left-box {
-    width: 50%;
-    height: 300px;
-    float: left;
-    margin-left: 430px;  
-    background-color: #E5E7EB
+.container-boxes .left-box {
+    flex-basis: calc(50% - 10px); /* 50% minus half the gap */
+    height: 470px; /* Height for the larger box */
 }
 
-.right-boxes {
-    width: 50%;
-    height: 230px;
+.container-boxes .right-boxes {
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 40px; /* Space between the two right boxes */
 }
+
 
 
 .box.active{
