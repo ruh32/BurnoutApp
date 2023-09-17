@@ -31,6 +31,8 @@ mycursor.execute("INSERT INTO loginTable (userID, username, password)\
                  VALUES (%s,%s,%s)", (2, "testAdmin", "testAdminPassword"))
 
 
+mycursor.execute("ALTER TABLE questionTable DROP PRIMARY KEY")
+mycursor.execute("ALTER TABLE journalTable DROP PRIMARY KEY")
 
 mycursor.execute("INSERT INTO questionTable (userId, date, questionResponses) VALUES (1,'2023-07-14',221858)")
 mycursor.execute("INSERT INTO questionTable (userId, date, questionResponses) VALUES (1,'2023-07-21',854735)")
