@@ -8,12 +8,12 @@ class HealthLogic:
        getQDict = questionnaire.Questionnaire(id)
        self.qDict = getQDict.getDict()
     
-    def createGraph(self, dateRange):
-        print(self.qDict) #dictionary of data for user date = key, value = 6 ints from questions
-        # compare range with the values in the dictionary
-        #for x in self:
-            #if
-        fig = px.bar(self.qDict, x='Time', y='Mental Health', title='Mental Health Trends')
+    def createGraph(self):
+        sorted_keys = sorted(self.qDict.keys(), key=lambda x: int(x[3:]))
+        highest_indexed_keys = sorted_keys[-4:]
+        monthDict = {key: self.qDict[key] for key in highest_indexed_keys}
+
+        fig = px.bar(monthDict, x='Time', y='Mental Health', title='Mental Health Trends')
         # fig.show()
         fig.write_image("static/image/plot.jpeg", format="jpeg", width=200, height=300) # makes an image
        
