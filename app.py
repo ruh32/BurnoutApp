@@ -19,7 +19,7 @@ def index():
         
     return render_template('index.html')  
 
-@app.route('/landingPage')
+@app.route('/landingPage', methods=['GET', 'POST'])
 def landing_page():
     #if current_user is not None:
 
