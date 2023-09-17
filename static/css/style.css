@@ -548,9 +548,10 @@ button {
     gap: 40px; /* Space between the two right boxes */
 }
 
-.graph_box {
+.container-boxes .graph_box {
     width: 50%;
     height: 300px;
+    background-color: lightblue;
 }
 
 .box.active{
