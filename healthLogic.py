@@ -32,4 +32,4 @@ class HealthLogic:
         else: return "Very Poor"
         
     def getHighRisk(self):
-        #self
+        self
