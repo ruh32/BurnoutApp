@@ -1,6 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for
-import loginCheck, user, questionnaire, datetime
-
+import loginCheck, user, questionnaire, datetime, healthLogic
 app = Flask(__name__)
 current_user = None
 
@@ -23,6 +22,11 @@ def index():
 @app.route('/landingPage')
 def landing_page():
     #if current_user is not None:
+
+        userHealthData = healthLogic.HealthLogic(current_user.get_id())
+        monthAverage = userHealthData.getHealthMonthAverage()
+        healthDescriptor = userHealthData.getHealthDescriptor()
+
         return render_template('landingPage.html')
     #else:
         #return render_template('index.html')
@@ -35,9 +39,12 @@ def journal():
     #else:
         #return render_template('index.html')
 
-@app.route('/myHealthHistory')
+@app.route('/myHealthHistory', methods=['GET', 'POST'])
 def my_health_history():
     #if current_user is not None:
+
+
+
         return render_template('myHealthHistory.html')
     #else:
         #return render_template('index.html')
