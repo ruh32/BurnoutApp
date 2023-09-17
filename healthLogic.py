@@ -10,6 +10,9 @@ class HealthLogic:
     
     def createGraph(self, dateRange):
         print(self.qDict) #dictionary of data for user date = key, value = 6 ints from questions
+        # compare range with the values in the dictionary
+        #for x in self:
+            #if
         fig = px.bar(self.qDict, x='Time', y='Mental Health', title='Mental Health Trends')
         # fig.show()
         fig.write_image("static/image/plot.jpeg", format="jpeg", width=200, height=300) # makes an image
@@ -27,19 +30,6 @@ class HealthLogic:
         elif(5 <= healthAverage <= 6): return "Ok"
         elif(7 <= healthAverage <= 8): return "Poor"
         else: return "Very Poor"
-    
-    def getHealthMonth(self):
-        self
-
-    def createTeamGraph(self):
-        self
-        createGraph();
-
+        
     def getHighRisk(self):
-        self
-
-    
-
-
-
-
+        #self
